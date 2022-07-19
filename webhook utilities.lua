@@ -55,6 +55,39 @@ function gui()
 		end
 		webhook("", tonumber(0))
 	end)
+	tab:Toggle("Spam Webhook message", false, function(t)
+		while t == true do
+			task.wait(1)
+			function webhook(_, color)
+				local data = {
+					["content"] = content,
+					["username"] = name,
+					["embeds"] = {{
+						["title"] = title,
+						["description"] = desc,
+						["type"] = "rich",
+						["color"] = color,
+						["footer"] = {
+							["text"] = footer
+						}
+					}}
+				}
+				local newdata = game:GetService("HttpService"):JSONEncode(data)
+				local headers = {
+					["content-type"] = "application/json"
+				}
+				request = http_request or request or HttpPost or syn.request
+				local a = {
+					Url = url,
+					Body = newdata,
+					Method = "POST",
+					Headers = headers
+				}
+				request(a)
+			end
+			webhook("", tonumber(0))
+		end
+	end)
 	tab2:Textbox("Webhook", true, function(t)
 		url = t
 	end)
@@ -84,6 +117,30 @@ function gui()
 			request(a)
 		end
 		webhook("", tonumber(0))
+	end)
+	tab2:Toggle("Spam Webhook message", false, function(t)
+		while t == true do
+			task.wait(1)
+			function webhook(_, _)
+				local data = {
+					["content"] = content2,
+					["username"] = name2
+				}
+				local newdata = game:GetService("HttpService"):JSONEncode(data)
+				local headers = {
+					["content-type"] = "application/json"
+				}
+				request = http_request or request or HttpPost or syn.request
+				local a = {
+					Url = url,
+					Body = newdata,
+					Method = "POST",
+					Headers = headers
+				}
+				request(a)
+			end
+			webhook("", tonumber(0))
+		end
 	end)
 	settings:Bind("Menu Toggle", Enum.KeyCode.N, function()
 		if isClosed == false then
