@@ -4,7 +4,7 @@ function gui() -- creating gui function to avoid multiple guis spawning
     local lib = loadstring(game:HttpGet"https://pastebin.com/raw/DKuakmyG")() -- setting lib
 
     local win = lib:Window("Conversion rate",Color3.fromRGB(173,216,230)) -- creating window, color is later overridden by gui color picker
-    
+
     local tab = win:Tab("Main") -- creating window
 
     local settings = win:Tab("Settings") -- creating settings tab
@@ -17,8 +17,8 @@ function gui() -- creating gui function to avoid multiple guis spawning
         option = t -- setting option to t so that we can use it outside of the dropdown
         lib:Notification(t, "Was chosen", "Okay") -- sending notification
         if option == "CAD to USD" then
-          convertNum = 1.30258 -- current cad to usd conversion rate
-        elseif option == "USD to CAD" then 
+            convertNum = 1.30258 -- current cad to usd conversion rate
+        elseif option == "USD to CAD" then
             convertNum =  0.767700 -- current usd to cad conversion rate
         elseif option == "Km to Miles" then
             convertNum = 0.621371 -- current km to miles conversion rate
@@ -36,8 +36,8 @@ function gui() -- creating gui function to avoid multiple guis spawning
     end)
 
     tab:Textbox("amount to convert",true, function(t) -- making a textbox for the number to convert
-      amt = t -- setting an ammount to t so that we can use it outside of the textbox
-            end)
+        amt = t -- setting an ammount to t so that we can use it outside of the textbox
+    end)
 
     tab:Button("Convert", function()
         if option == "CAD to USD" then
@@ -59,12 +59,21 @@ function gui() -- creating gui function to avoid multiple guis spawning
             result = amt * convertNum-- multiplying the ammount by the conversion rate
             lib:Notification(result .. " USD", "Using " .. option, "Okay")  -- sending notification
         elseif option == "°C to °F" then
-            result = amt * convertNum + 32 -- special formula for °c to °f conversion 
+            result = amt * convertNum + 32 -- special formula for °c to °f conversion
             lib:Notification(result, "Using " .. option, "Okay")  -- sending notification
         elseif option == "°F to °C" then
-            result = amt - 32 -- special formula for °f to °c conversion 
+            result = amt - 32 -- special formula for °f to °c conversion
             result2 = result / convertNum -- dividing the result by the conversion rate (1.8000)
             lib:Notification(result2, "Using " .. option, "Okay")  -- sending notification
 
         end
     end)
+end
+
+
+if not game:GetService("CoreGui"):FindFirstChild("ui") then
+    gui()
+else
+    game:GetService("CoreGui"):FindFirstChild("ui"):Destroy()
+    gui()
+end
