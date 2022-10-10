@@ -1,3 +1,5 @@
+getgenv().webhook = "webhook here"
+
 local Tree
 
 function serverhop()
