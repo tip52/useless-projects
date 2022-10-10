@@ -8,6 +8,8 @@ function serverhop()
 
 end
 
+task.wait(3)
+
 for i, v in pairs(workspace:GetChildren()) do
     if v.Name == "TreeRegion" then
         for k, l in pairs(v:GetChildren()) do
