@@ -5,7 +5,7 @@ until
 
 
 getgenv().Speed = 16
-
+_G.KeyCode = "X"
 if not isfolder("Greif Config") then
     makefolder("Greif Config")
     if not isfile("Greif Config/WalkSpeed.txt") then
@@ -14,21 +14,18 @@ if not isfolder("Greif Config") then
     if not isfile("Greif Config/Fling.txt") then
         writefile("Greif Config/Fling.txt","false")
     end
-    if not isfile("Greif Config/FlingKey.txt") then
-        writefile("Greif Config/FlingKey.txt","X")
-    end
+
 end
 
 getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
 fling = readfile("Greif Config/Fling.txt")
-flingKey = readfile("Greif Config/FlingKey.txt")
-_G.KeyCode = flingKey
 if fling == "true" then
     loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
 end
 
-_G.flyKey = "q"
 
+
+_G.flyKey = "q"
 function Walkspeed()
     game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = getgenv().Speed
@@ -182,16 +179,9 @@ Main:Toggle{
     end
 }
 
-Main:Textbox{
-    Name = "Fling Toggle Key (Default X)",
-    Callback = function(v)
-        _G.KeyCode = v
-        writefile("Greif Config/FlingKey.txt",v)
-    end
-}
 
 Main:Toggle{
-    Name = "Auto load Fling Script",
+    Name = "Auto load Fling Script (x to toggle fling)",
     StartingState = false,
     Description = nil,
     Callback = function(v)
@@ -200,7 +190,7 @@ Main:Toggle{
 }
 
 Main:Button{
-    Name = "Execute Fling Script",
+    Name = "Execute Fling Script (x to toggle fling)",
     Description = nil,
     Callback = function()
         loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
@@ -227,6 +217,7 @@ Main:Button{
 
     end
 }
+
 
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local Players = game.Players
