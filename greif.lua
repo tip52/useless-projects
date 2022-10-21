@@ -27,9 +27,8 @@ if fling == "true" then
     loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
 end
 
-
-
 _G.flyKey = "q"
+
 function Walkspeed()
     game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = getgenv().Speed
@@ -196,7 +195,7 @@ Main:Toggle{
     StartingState = false,
     Description = nil,
     Callback = function(v)
-        writefile("Greif Config/Fling.txt",v)
+        writefile("Greif Config/Fling.txt",tostring(v))
     end
 }
 
@@ -228,7 +227,6 @@ Main:Button{
 
     end
 }
-
 
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local Players = game.Players
