@@ -99,8 +99,7 @@ function BetterFly()
     end)
     Fly()
 end
-game.Players.LocalPlayer.CharacterAdded:Connect(BetterFly)
-BetterFly()
+
 
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/thombomb2009/butter-hub/main/lib.txt"))()
 
