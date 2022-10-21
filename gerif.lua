@@ -1,4 +1,4 @@
-repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players.LocalPlayer.Character
 getgenv().Speed = 16
 _G.flyKey = "q"
 function Walkspeed()
@@ -99,7 +99,8 @@ function BetterFly()
     end)
     Fly()
 end
-
+game.Players.LocalPlayer.CharacterAdded:Connect(BetterFly)
+BetterFly()
 
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/thombomb2009/butter-hub/main/lib.txt"))()
 
