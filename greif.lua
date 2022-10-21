@@ -5,10 +5,9 @@ until
 
 
 getgenv().Speed = 16
-_G.KeyCode = "X"
+
 if not isfolder("Greif Config") then
     makefolder("Greif Config")
-    end
     if not isfile("Greif Config/WalkSpeed.txt") then
         writefile("Greif Config/WalkSpeed.txt",16)
     end
@@ -16,10 +15,13 @@ if not isfolder("Greif Config") then
         writefile("Greif Config/Fling.txt","false")
     end
 
+end
 
 getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
 fling = readfile("Greif Config/Fling.txt")
 if fling == "true" then
+    repeat task.wait() until game:IsLoaded()
+    _G.KeyCode = "X"
     loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
 end
 
@@ -197,6 +199,7 @@ Main:Button{
     Name = "Execute Fling Script (x to toggle fling)",
     Description = nil,
     Callback = function()
+        _G.KeyCode = "X"
         loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
     end
 }
