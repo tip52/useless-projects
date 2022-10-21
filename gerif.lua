@@ -2,7 +2,25 @@ repeat
     task.wait() 
 until 
 game.Players.LocalPlayer
-getgenv().Speed = 16
+
+
+        getgenv().Speed = 16
+
+        if not isfolder("Greif Config") then
+            makefolder("Greif Config")
+            writefile("Greif Config/WalkSpeed.txt",16)
+            writefile("Greif Config/Fling.txt","false")
+            writefile("Greif Config/FlingKey.txt","X")
+            else
+            getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
+            fling = readfile(("Greif Config/Fling.txt")
+            flingKey = readfile("Greif Config/FlingKey.txt")
+            _G.KeyCode = flingKey
+            if fling == "true" then
+                loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
+            end
+
+
 _G.flyKey = "q"
 function Walkspeed()
     game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
@@ -127,6 +145,7 @@ Main:Slider{
     Callback = function(v)
         getgenv().Speed = v
         Walkspeed()
+        writefile("Greif Config/WalkSpeed.txt",v)
     end
 }
 
@@ -156,11 +175,20 @@ Main:Toggle{
     end
 }
 
-_G.KeyCode = "X"
 Main:Textbox{
     Name = "Fling Toggle Key (Default X)",
     Callback = function(v)
         _G.KeyCode = v
+        writefile("Greif Config/FlingKey.txt",v)
+    end
+}
+
+Main:Toggle{
+    Name = "Auto load Fling Script",
+    StartingState = false,
+    Description = nil,
+    Callback = function(v)
+        writefile("Greif Config/Fling.txt",v)
     end
 }
 
