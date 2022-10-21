@@ -1,4 +1,4 @@
-
+repeat task.wait() until game:IsLoaded()
 getgenv().Speed = 16
 _G.flyKey = "q"
 function Walkspeed()
