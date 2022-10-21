@@ -229,7 +229,7 @@ shid = true
 Players.LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
         if shid and queueteleport then
-            queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/tip52/useless-projects/main/gerif.lua'))()")
+            queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/tip52/useless-projects/main/greif.lua'))()")
         end
     end
 end)
