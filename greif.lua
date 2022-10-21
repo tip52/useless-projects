@@ -1,24 +1,32 @@
-repeat 
-    task.wait() 
-until 
-game.Players.LocalPlayer
+repeat
+    task.wait()
+until
+    game.Players.LocalPlayer
 
 
-        getgenv().Speed = 16
+getgenv().Speed = 16
 
-        if not isfolder("Greif Config") then
-            makefolder("Greif Config")
-            writefile("Greif Config/WalkSpeed.txt",16)
-            writefile("Greif Config/Fling.txt","false")
-            writefile("Greif Config/FlingKey.txt","X")
-            else
-            getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
-            fling = readfile(("Greif Config/Fling.txt")
-            flingKey = readfile("Greif Config/FlingKey.txt")
-            _G.KeyCode = flingKey
-            if fling == "true" then
-                loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
-            end
+if not isfolder("Greif Config") then
+    makefolder("Greif Config")
+    if not isfile("Greif Config/WalkSpeed.txt") then
+        writefile("Greif Config/WalkSpeed.txt",16)
+    end
+    if not isfile("Greif Config/Fling.txt") then
+        writefile("Greif Config/Fling.txt","false")
+    end
+    if not isfile("Greif Config/FlingKey.txt") then
+        writefile("Greif Config/FlingKey.txt","X")
+    end
+end
+
+getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
+fling = readfile("Greif Config/Fling.txt")
+flingKey = readfile("Greif Config/FlingKey.txt")
+_G.KeyCode = flingKey
+if fling == "true" then
+    loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
+end
+
 
 
 _G.flyKey = "q"
