@@ -1,4 +1,7 @@
-repeat task.wait() until game.Players.LocalPlayer.Character
+repeat 
+    task.wait() 
+until 
+game.Players.LocalPlayer
 getgenv().Speed = 16
 _G.flyKey = "q"
 function Walkspeed()
