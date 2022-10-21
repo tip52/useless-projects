@@ -8,22 +8,13 @@ getgenv().Speed = 16
 
 if not isfolder("Greif Config") then
     makefolder("Greif Config")
+end
     if not isfile("Greif Config/WalkSpeed.txt") then
         writefile("Greif Config/WalkSpeed.txt",16)
     end
-    if not isfile("Greif Config/Fling.txt") then
-        writefile("Greif Config/Fling.txt","false")
-    end
-
-end
+ 
 
 getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
-fling = readfile("Greif Config/Fling.txt")
-if fling == "true" then
-    repeat task.wait() until game:IsLoaded()
-    _G.KeyCode = "X"
-    loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
-end
 
 
 
@@ -178,20 +169,6 @@ Main:Toggle{
     Callback = function(state)
         FlyingEnabled = state
         BetterFly()
-    end
-}
-
-if readfile("Greif Config/Fling.txt") == true then
-    startingstate2 = true
-else
-    startingstate2 = false
-end
-Main:Toggle{
-    Name = "Auto load Fling Script (x to toggle fling)",
-    StartingState = startingstate2,
-    Description = nil,
-    Callback = function(v)
-        writefile("Greif Config/Fling.txt",tostring(v))
     end
 }
 
