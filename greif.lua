@@ -8,6 +8,7 @@ getgenv().Speed = 16
 _G.KeyCode = "X"
 if not isfolder("Greif Config") then
     makefolder("Greif Config")
+    end
     if not isfile("Greif Config/WalkSpeed.txt") then
         writefile("Greif Config/WalkSpeed.txt",16)
     end
@@ -15,7 +16,6 @@ if not isfolder("Greif Config") then
         writefile("Greif Config/Fling.txt","false")
     end
 
-end
 
 getgenv().Speed = tonumber(readfile("Greif Config/WalkSpeed.txt"))
 fling = readfile("Greif Config/Fling.txt")
