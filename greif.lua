@@ -179,10 +179,14 @@ Main:Toggle{
     end
 }
 
-
+if readfile("Greif Config/Fling.txt") == true then
+    startingstate2 = true
+else
+    startingstate2 = false
+end
 Main:Toggle{
     Name = "Auto load Fling Script (x to toggle fling)",
-    StartingState = false,
+    StartingState = startingstate2,
     Description = nil,
     Callback = function(v)
         writefile("Greif Config/Fling.txt",tostring(v))
