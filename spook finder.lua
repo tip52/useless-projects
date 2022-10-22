@@ -1,6 +1,3 @@
-getgenv().webhook = "webhook here"
-getgenv().spookFarm = true
-
 repeat task.wait() until game:IsLoaded()
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
 
