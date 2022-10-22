@@ -1,14 +1,22 @@
+getgenv().webhook = "webhook here"
+getgenv().spookFarm = true
+
 repeat task.wait() until game:IsLoaded()
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
 
 game.Players.LocalPlayer:Kick("No webhook stated")
 task.wait(.5)
 game:Shutdown()
-
 end
+    if isfolder("spook finder")==nil then
+    makefolder("spook finder")
+        end
 
-if getgenv().spookFarm == true then
-
+    if isfile("spook finder/webhook.txt") then
+    if isfile("spook finder/enabled.txt") then
+    enabled = readfile("spook finder/enabled.txt")
+    if enabled == "true" then
+        
 local Tree
 
 local sizeTable = {}
@@ -284,4 +292,11 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
         end
     end
 end)
+end
+else
+    writefile("spook finder/enabled.txt",getgenv().spookFarm)
+
+end
+else
+    writefile("spook finder/webhook.txt",getgenv().webhook)
 end
