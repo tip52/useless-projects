@@ -153,7 +153,7 @@ else
     local tpScript = "game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(" .. tostring(sinCFrame) .. ")"
 
     function webhook(NAME)
-        url = getgenv().webhook
+        url = readfile("spook finder/webhook.txt")
         local data = {
             ["content"] = "",
             ["username"] = NAME,
@@ -221,7 +221,7 @@ else
     local tpScript = "game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(" .. tostring(spookCFrame) .. ")"
 
     function webhook(NAME)
-        url = getgenv().webhook
+        url = readfile("spook finder/webhook.txt")
         local data = {
             ["content"] = "",
             ["username"] = NAME,
@@ -279,16 +279,6 @@ else
 end
 
 
-local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
-local Players = game.Players
-
-Players.LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
-        if queueteleport then
-            queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/tip52/useless-projects/main/spook%20finder.lua'))()")
-        end
-    end
-end)
 end
 else
 
@@ -304,3 +294,15 @@ end
 else
     writefile("spook finder/webhook.txt",getgenv().webhook)
 end
+
+
+local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game.Players
+
+Players.LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        if queueteleport then
+            queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/tip52/useless-projects/main/spook%20finder.lua'))()")
+        end
+    end
+end)
