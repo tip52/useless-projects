@@ -1,3 +1,9 @@
+if getgenv().webhook == nil then
+    
+game.Players.LocalPlayer:Kick("No webhook stated")
+
+end
+
 if not isfolder("Spook Farm") then
     makefolder("Spook Farm")
     writefile("Spook Farm/toggle.txt", getgenv().spookFarm)
@@ -271,3 +277,15 @@ else
 
     Teleport()
 end
+
+
+local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game.Players
+
+Players.LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        if queueteleport then
+            queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/tip52/useless-projects/main/spook%20finder.lua'))()")
+        end
+    end
+end)
