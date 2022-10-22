@@ -1,3 +1,6 @@
+getgenv().webhook = "webhook here"
+getgenv().spookFarm = true
+
 repeat task.wait() until game:IsLoaded()
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
 
@@ -291,7 +294,14 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
 end)
 end
 else
-    writefile("spook finder/enabled.txt",getgenv().spookFarm)
+
+    if getgenv().spookFarm == true then
+        val = "true"
+        else
+            val = "false"
+        
+        end
+  writefile("spook finder/enabled.txt",val)
 
 end
 else
