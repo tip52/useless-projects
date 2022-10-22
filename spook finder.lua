@@ -1,18 +1,13 @@
+getgenv().webhook = "webhook here"
+getgenv().spookFarm = true
+
 if getgenv().webhook == nil then
     
 game.Players.LocalPlayer:Kick("No webhook stated")
 
 end
 
-if not isfolder("Spook Farm") then
-    makefolder("Spook Farm")
-    writefile("Spook Farm/toggle.txt", getgenv().spookFarm)
-else
-    writefile("Spook Farm/toggle.txt", getgenv().spookFarm)
-    end
-
-
-
+if getgenv().spookFarm == true then
 
 local Tree
 
@@ -289,3 +284,4 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
         end
     end
 end)
+end
