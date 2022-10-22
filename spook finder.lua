@@ -1,6 +1,3 @@
-getgenv().webhook = "webhook here"
-getgenv().spookFarm = true
-
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
     
 game.Players.LocalPlayer:Kick("No webhook stated")
