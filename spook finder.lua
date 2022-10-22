@@ -1,6 +1,8 @@
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
-    
+
 game.Players.LocalPlayer:Kick("No webhook stated")
+task.wait(.5)
+game:ShutDown()
 
 end
 
