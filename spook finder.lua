@@ -1,3 +1,6 @@
+getgenv().webhook = "webhook here"
+getgenv().spookFarm = true
+
 repeat task.wait() until game:IsLoaded()
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
 
@@ -5,14 +8,7 @@ game.Players.LocalPlayer:Kick("No webhook stated")
 task.wait(.5)
 game:Shutdown()
 end
-    if isfolder("spook finder")==nil then
-    makefolder("spook finder")
-        end
 
-    if isfile("spook finder/webhook.txt") then
-    if isfile("spook finder/enabled.txt") then
-    enabled = readfile("spook finder/enabled.txt")
-    if enabled == "true" then
         
 local Tree
 
@@ -70,7 +66,7 @@ function TPReturner()
                     wait()
                     game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
                 end)
-                wait(.3)
+                task.wait(.3)
             end
         end
     end
@@ -153,7 +149,7 @@ else
     local tpScript = "game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(" .. tostring(sinCFrame) .. ")"
 
     function webhook(NAME)
-        url = readfile("spook finder/webhook.txt")
+        url = getgenv().webhook
         local data = {
             ["content"] = "",
             ["username"] = NAME,
@@ -221,7 +217,7 @@ else
     local tpScript = "game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(" .. tostring(spookCFrame) .. ")"
 
     function webhook(NAME)
-        url = readfile("spook finder/webhook.txt")
+        url = getgenv().webhook
         local data = {
             ["content"] = "",
             ["username"] = NAME,
@@ -279,29 +275,13 @@ else
 end
 
 
-end
-else
-
-    if getgenv().spookFarm == true then
-        val = "true"
-        else
-            val = "false"
-        
-        end
-  writefile("spook finder/enabled.txt",val)
-
-end
-else
-    writefile("spook finder/webhook.txt",getgenv().webhook)
-end
-
-
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local Players = game.Players
+shid = true
 
 Players.LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-        if queueteleport then
+        if shid and queueteleport then
             queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/tip52/useless-projects/main/spook%20finder.lua'))()")
         end
     end
