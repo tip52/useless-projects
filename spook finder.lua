@@ -1,5 +1,5 @@
-getgenv().webhook = "webhook here"
-getgenv().spookFarm = true
+--[[getgenv().webhook = "webhook here"
+getgenv().spookFarm = true--]]
 
 repeat task.wait() until game:IsLoaded()
 if getgenv().webhook == nil or getgenv().webhook == "webhook here" then
@@ -10,6 +10,7 @@ game:Shutdown()
 end
 
         
+if getgenv().enabled then
 local Tree
 
 local sizeTable = {}
@@ -286,3 +287,4 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
         end
     end
 end)
+end
