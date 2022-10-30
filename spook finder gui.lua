@@ -295,10 +295,12 @@ else
 end
 
 local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+shid = true
+
 
 game.Players.LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-        if queueteleport then
+        if shid and queueteleport then
             queueteleport("https://raw.githubusercontent.com/tip52/useless-projects/main/spook%20finder%20gui.lua")
         end
     end
