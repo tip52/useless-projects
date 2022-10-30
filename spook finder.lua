@@ -10,7 +10,6 @@ game:Shutdown()
 end
 
         
-if getgenv().enabled then
 local Tree
 
 local sizeTable = {}
@@ -287,4 +286,3 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
         end
     end
 end)
-end
