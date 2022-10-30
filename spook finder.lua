@@ -84,10 +84,6 @@ function Teleport()
 end
 
 
-
-repeat task.wait() until game:IsLoaded()
-
-
 for i,v in pairs (workspace:GetDescendants()) do
     if v:IsA("StringValue") and v.Name == "TreeClass" then
         if v.Value == "Spooky" then
