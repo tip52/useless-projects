@@ -293,3 +293,13 @@ gui()
 else
     gui()
 end
+
+local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+
+game.Players.LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        if queueteleport then
+            queueteleport("https://raw.githubusercontent.com/tip52/useless-projects/main/spook%20finder%20gui.lua")
+        end
+    end
+end)
