@@ -67,7 +67,8 @@ for i, v in pairs(workspace:GetChildren()) do
             if l:FindFirstChild("TreeClass") and l:FindFirstChild("WoodSection") and l:FindFirstChild("Owner") then
                 if l.TreeClass.Value == "Spooky" and l.Owner.Value == nil and not table.find(spook,l) then
                     table.insert(spook,l)
-                    oldSpook = l.WoodSection.CFrame
+                    local randomSpook = spook[math.random(1,#spook)]
+                    oldSpook = randomSpook.WoodSection.CFrame
                     TextLabel_2.Text = "Spook in your server: " .. #spook
                 end
             end
@@ -96,7 +97,8 @@ for i, v in pairs(workspace:GetChildren()) do
             if l:FindFirstChild("TreeClass") and l:FindFirstChild("WoodSection") and l:FindFirstChild("Owner") then
                 if l.TreeClass.Value == "SpookyNeon" and l.Owner.Value == nil and not table.find(sinister,l) then
                     table.insert(sinister,l)
-                    oldSin = l.WoodSection.CFrame
+                    local randomSin = sinister[math.random(1,#sinister)]
+                    oldSin = randomSin.WoodSection.CFrame
                     TextLabel_3.Text = "Sinister in your server: " .. #sinister
                     
                 end
