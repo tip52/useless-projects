@@ -1,6 +1,4 @@
-if getgenv().chams == nil then
-getgenv().chams = true
-end
+--getgenv().chams = true
 local items = {}
 local items2 = {}
 local function Chams(inst)
