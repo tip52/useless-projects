@@ -1,5 +1,5 @@
-if chams == nil then
-chams = true
+if getgenv().chams == nil then
+getgenv().chams = true
 end
 local items = {}
 local items2 = {}
