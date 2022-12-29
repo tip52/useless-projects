@@ -15,12 +15,18 @@ local TweenService = Game:GetService("TweenService")
 
 
 if game.CoreGui:FindFirstChild("Notif") then
+if syn.protect_gui then 
+	syn.protect_gui(ScreenGui)
+end
 ScreenGui.Parent = game.CoreGui
 ScreenGui.Name = "Notif2"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 tweento = UDim2.new(0.787, 0, 0.76, 0)
 else
 tweento = UDim2.new(0.787, 0, 0.85, 0)
+if syn.protect_gui then 
+syn.protect_gui(ScreenGui)
+end
 ScreenGui.Parent = game.CoreGui
 ScreenGui.Name = "Notif"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
