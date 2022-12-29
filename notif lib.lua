@@ -68,4 +68,4 @@ TweenService:Create(Frame, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.Easi
 task.wait(0.1)
 ScreenGui:Destroy()
 end
-notif(7258918524,"MM2 Coin Farm","fard",1)
+return notif
