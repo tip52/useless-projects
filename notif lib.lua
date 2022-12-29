@@ -1,4 +1,6 @@
 function notif(icon,title,desc,time)
+
+
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
@@ -8,30 +10,31 @@ local ImageLabel = Instance.new("ImageLabel")
 local UICorner_3 = Instance.new("UICorner")
 local TextLabel_2 = Instance.new("TextLabel")
 local UICorner_4 = Instance.new("UICorner")
-local TweenService = game:GetService("TweenService")
-local tweento = UDim2.new(0.825, 0, 0.85, 0)
+local TweenService = Game:GetService("TweenService")
 --Properties:
+
+
 if game.CoreGui:FindFirstChild("Notif") then
 ScreenGui.Parent = game.CoreGui
 ScreenGui.Name = "Notif2"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-tweento = UDim2.new(0.825, 0, 0.75, 0)
+tweento = UDim2.new(0.787, 0, 0.76, 0)
 else
+tweento = UDim2.new(0.787, 0, 0.85, 0)
 ScreenGui.Parent = game.CoreGui
 ScreenGui.Name = "Notif"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 end
 
 Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
 Frame.Position = UDim2.new(1, 0, 1, 0)
-Frame.Size = UDim2.new(0, 329, 0, 81)
+Frame.Size = UDim2.new(0, 407, 0, 81)
 
-TextLabel.Text = title
 TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-TextLabel.Position = UDim2.new(0, 0, -0.0864197537, 0)
-TextLabel.Size = UDim2.new(0, 329, 0, 25)
+TextLabel.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+TextLabel.Position = UDim2.new(0.0859950855, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 372, 0, 24)
 TextLabel.Font = Enum.Font.SourceSans
 TextLabel.TextColor3 = Color3.fromRGB(225, 225, 225)
 TextLabel.TextScaled = true
@@ -44,18 +47,18 @@ UICorner_2.Parent = Frame
 
 ImageLabel.Parent = Frame
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.Position = UDim2.new(0.0130000003, 0, 0.123000003, 0)
+ImageLabel.Position = UDim2.new(0.0277420152, 0, 0.123000003, 0)
 ImageLabel.Size = UDim2.new(0, 60, 0, 60)
-ImageLabel.Image = "http://www.roblox.com/asset/?id="..tostring(icon)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=10039626457"
 
 UICorner_3.Parent = ImageLabel
 
 TextLabel_2.Parent = Frame
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
-TextLabel_2.Position = UDim2.new(0.206686929, 0, 0.222222209, 0)
-TextLabel_2.Size = UDim2.new(0, 253, 0, 50)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+TextLabel_2.Position = UDim2.new(0.211600944, 0, 0.296296299, 0)
+TextLabel_2.Size = UDim2.new(0, 305, 0, 50)
 TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = desc
+TextLabel_2.Text = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu"
 TextLabel_2.TextColor3 = Color3.fromRGB(226, 226, 226)
 TextLabel_2.TextSize = 15.000
 TextLabel_2.TextWrapped = true
