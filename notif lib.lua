@@ -46,7 +46,7 @@ ImageLabel.Parent = Frame
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.Position = UDim2.new(0.0130000003, 0, 0.123000003, 0)
 ImageLabel.Size = UDim2.new(0, 60, 0, 60)
-ImageLabel.Image = "http://www.roblox.com/asset/?id="..totring(icon)
+ImageLabel.Image = "http://www.roblox.com/asset/?id="..tostring(icon)
 
 UICorner_3.Parent = ImageLabel
 
@@ -68,4 +68,4 @@ TweenService:Create(Frame, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.Easi
 task.wait(0.1)
 ScreenGui:Destroy()
 end
-return notif
+notif(7258918524,"MM2 Coin Farm","fard",1)
