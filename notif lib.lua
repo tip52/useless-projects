@@ -40,6 +40,7 @@ TextLabel.TextColor3 = Color3.fromRGB(225, 225, 225)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
 TextLabel.TextWrapped = true
+TextLabel.Text = title
 
 UICorner.Parent = TextLabel
 
@@ -49,7 +50,7 @@ ImageLabel.Parent = Frame
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.Position = UDim2.new(0.0277420152, 0, 0.123000003, 0)
 ImageLabel.Size = UDim2.new(0, 60, 0, 60)
-ImageLabel.Image = "http://www.roblox.com/asset/?id=10039626457"
+ImageLabel.Image = "http://www.roblox.com/asset/?id=" .. tostring(icon)
 
 UICorner_3.Parent = ImageLabel
 
@@ -58,7 +59,7 @@ TextLabel_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 TextLabel_2.Position = UDim2.new(0.211600944, 0, 0.296296299, 0)
 TextLabel_2.Size = UDim2.new(0, 305, 0, 50)
 TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu"
+TextLabel_2.Text = desc
 TextLabel_2.TextColor3 = Color3.fromRGB(226, 226, 226)
 TextLabel_2.TextSize = 15.000
 TextLabel_2.TextWrapped = true
