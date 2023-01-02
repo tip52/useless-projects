@@ -162,3 +162,53 @@ Section:Item(
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2.2056942, 163.100677, 21.1380997, 0.151307687, 8.91890028e-09, 0.988486707, 2.88994584e-09, 1, -9.465146e-09, -0.988486707, 4.28882263e-09, 0.151307687)
         end
     end)
+
+
+
+
+
+
+task.wait(0.5)
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+local open = true
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "btn"
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextButton.Parent = ScreenGui
+TextButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextButton.Position = UDim2.new(0.449600041, 0, 0.0249375701, 0)
+TextButton.Size = UDim2.new(0, 124, 0, 23)
+TextButton.Font = Enum.Font.Gotham
+TextButton.Text = "Close"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Click:Connect(function()
+    if open == true then
+    TextButton.Text = "Open"
+    if game:GetService("CoreGui"):FindFirstChild("PScreen") then
+    game:GetService("CoreGui").PScreen.PanelContainer.Visible = false
+    open = false
+    end
+    else
+        TextButton.Text = "Close"
+        if game:GetService("CoreGui"):FindFirstChild("PScreen") then
+    game:GetService("CoreGui").PScreen.PanelContainer.Visible = true
+        end
+open = true
+    end    
+    
+end)    
+
+UICorner.Parent = TextButton
