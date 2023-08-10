@@ -273,3 +273,7 @@ end
 function notifications:message(options)
 	self:notify(options)
 end
+
+function notify(title,desc,icon)
+notifications:message{Title = title,Description = desc ,Icon = icon}
+end
