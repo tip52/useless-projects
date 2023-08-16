@@ -1,0 +1,82 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+local ui
+	repeat
+	task.wait()
+	for i,v in pairs(game.CoreGui:GetChildren()) do
+	if v:FindFirstChild("Main") and v.Main.ClassName == "Frame" and v.Main:FindFirstChild("SB") and v.Main:FindFirstChild("MainC") and v.Main:FindFirstChild("TabMain") then
+		ui = v.Main
+	end
+	end
+until ui ~= nil
+
+local ButterToggler = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ButterToggler.Name = "Butter Toggler"
+ButterToggler.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ButterToggler.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ButterToggler
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 0.443910271, 0)
+Frame.Size = UDim2.new(0, 109, 0, 70)
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0559630804, 0, 0.0957148969, 0)
+TextButton.Size = UDim2.new(0, 93, 0, 55)
+TextButton.ZIndex = 0
+TextButton.Font = Enum.Font.Gotham
+TextButton.Text = "Close"
+TextButton.TextColor3 = Color3.fromRGB(193, 193, 193)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+UICorner.Parent = TextButton
+
+-- Scripts:
+
+local function MRTMK_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local btn = script.Parent
+	local value = false
+	if btn.Text == 'Close' then
+		value = false
+	else
+		value = true
+	end
+	btn.MouseButton1Down:Connect(function()
+		value = not value
+		if value == true then
+		if ui then
+			ui.Visible = not value
+			btn.Text = "Open"
+			else
+
+		end
+		else
+		if ui then
+			ui.Visible = not value
+			btn.Text = "Close"
+			else
+			
+			end
+		end
+		
+	end)
+end
+coroutine.wrap(MRTMK_fake_script)()
