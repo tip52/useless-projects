@@ -79,7 +79,6 @@ getgenv().macroTroops = { -- will equip these for your macro
 }
 getgenv().macro = '{}'
 
-
 ([[
                 This script has been licensed using Luarmor
                   Luarmor v3.8b, Lua whitelisting system
